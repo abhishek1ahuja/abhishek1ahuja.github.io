@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+		<title>REDI: Dependency Visualisations</title>
+	
+		<!-- D3.js -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+		<script src="d3.legend.js"></script>
+     	
+		
+		<!-- Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Lato:400,900' rel='stylesheet' type='text/css'>
+		
+		<style>
+			.node {
+		cursor: pointer;
+	}
+
+	.node circle {
+	  fill: #fff;
+	  stroke: steelblue;
+	  stroke-width: 3px;
+	}
+
+	.node text {
+	  font: 13px sans-serif;
+	}
+
+	.link {
+	  fill: none;
+	  stroke: #ccc; 
+	  stroke-width: 2px;
+	}
+
+	.textpath {
+    font-size: 16px;
+    letter-spacing: 1px;
+    opacity: 0.5;
+  }
+  .legend rect {
+  fill:white;
+  stroke:black;
+  opacity:0.8;}
+
+  .split {
+  height: 100%;
+  width: 60%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.my-tooltip {
+  background: rgb(0,0,0);
+  padding: 15px;
+  font-size: 12px;
+  font-family: 'Lato', sans-serif;
+  color: rgb(255,255,255);
+  arrow:default;
+
+
+  
+}
+
+.my-tooltip .tooltip-inner{
+	color:"#fff" ;
+
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  text-align: center;
+ 
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+  text-align: center;
+ 
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+}
+
+
+	
+			body {
+			  font-size: 12px;
+			  font-family: 'Lato', sans-serif;
+			  text-align: center;
+			  fill: #2B2B2B;
+			  cursor: default;
+
+
+			}
+			.title {
+				margin-top: 20px;
+				margin-bottom: 10px;
+				margin-left: 20px;
+				font-size:32px;
+				font-family: 'Lato', sans-serif;
+				color: #2B2B2B;
+				float: left;
+			}
+			
+			.texts {
+				margin-left: 20px;
+				margin-right: 20px;
+				line-height: 140%;
+				float: left;
+				text-align: left;
+				font-size: 14px;
+			}
+			@media(min-width: 600px) {
+				#treechart{
+					float: left;
+					transform: 
+				}
+			}
+			@media (min-width: 600px) {
+				#chart{
+					font-size: 16px;
+					float:right;
+
+				}
+			}
+
+		</style>
+	</head>
+	<body>
+		
+		<div class = "title">Visualisation of Feature Dependencies</div>
+		<div class = "explanation texts">
+			<p style="margin-bottom: 0em;">The Tree Diagram visualises feature importance of the dataset Breast Cancer The features are also orded in line with their importance from the subsets. The colour of the link represents whether the previous feature is included in the choice of subset and both, the width of the link and the radius of the node represent the importance of said feature. Scrolling over the node will highlight the path taken. 
+			</p>
+			<p style="margin-top: 0.5em;">The Chord diagram visualises the feature dependencies of the same dataset. Here we can see which features share information by the links. The level of dependence is shown through the width of the links. By hovering over the links, one can see the calculated dependency score between the two.</p></div>
+
+		<div class = "split left" id = "treechart" style = "position: absolute; top: 270px"></div>
+		<div id = "chart"></div>
+		<svg id="my_dataviz" height=300 width=450></svg>
+
+		
+		<script type="text/javascript" src="tree-svg.js"></script>
+		<script src = "script.js"></script>
+
+
+		<h3 class = "split left" style = "position: absolute; top: 770px; ">Relative Feature Importance </h3>
+		<h3 class = "split right centered" style = "position: absolute; top: 770px; ">Relative Feature Dependencies </h3>
+		<script src="https://unpkg.com/@popperjs/core@2"></script>
+    	<script src="https://unpkg.com/tippy.js@6"></script>
+		<script src="https://unpkg.com/tippy.js@6"></script>
+		
+		
+
+		
+		
+
+  </body>
+</html>
